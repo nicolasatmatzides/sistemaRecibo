@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Sistema de Recibos</title>
+
+</head>
+<body>
+
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
+                <div class="container">
+                    <h1 class="display-4">Detalhe do Imóvel</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="justify-content: center;">
+        <div class="col-sm-6">
+            <form method="POST" action="detalhe-imovel" id="cadastro-form">
+                <input type="hidden" value="" name="old_alugado">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="endereco">Endereço</label>
+                        <input required name="endereco" type="text" class="form-control" id="endereco" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="complemento">Complemento</label>
+                        <input name="complemento" type="text" class="form-control" id="complemento" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cidade">Cidade</label>
+                        <input required name="cidade" type="text" class="form-control" id="cidade" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="estado">Estado</label>
+                        <input required name="estado" type="text" class="form-control" id="estado" value="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="cep">CEP</label>
+                        <input required name="cep" type="text" class="form-control" id="cep" value="">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="locador_id">Locador</label>
+                        <select name="locador_id" required id="locador_id" class="form-control">
+
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="condominio">Condomínio</label>
+                        <input required name="condominio" type="number"step="0.01"  class="form-control" id="condominio" value="">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label for="impostos">Impostos</label>
+                        <input required name="impostos" type="text"  class="form-control" id="impostos" value="">
+                    </div>
+                </div>
+
+
+
+
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+                    Salvar
+                </button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
+                    Excluir
+                </button>
+
+                <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Imóvel</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Deseja salvar as alterações?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" name="salvar" id="btn-confirm" class="btn btn-primary">Sim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form method="POST" action="detalhe-imovel?id=" id="cadastro-form-2">
+
+
+
+                <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Excluir Imóvel</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Deseja excluir imóvel?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" name="excluir" id="btn-confirm" class="btn btn-primary">Sim</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+</div>
+
+</div>
+
+<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;">
+    <p>Sistema de Recibos</p>
+</footer>
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+</body>
+</html>

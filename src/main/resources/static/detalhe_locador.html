@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <title>Sistema de Recibos</title>
+
+</head>
+<body>
+
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
+                <div class="container">
+                    <h1 class="display-4">Detalhe do Locador</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row" style="justify-content: center;">
+            <div class="col-sm-6">
+                <h1 style="font-size: 2.3rem; margin-bottom: 20px;" class="display-4">Dados</h1>
+                <form method="POST" action="detalhe-locador?id=" id="cadastro-form">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="nome">Nome do Locador</label>
+                            <input required name="nome" type="text" class="form-control" id="nome" value="">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cpf">CPF</label>
+                            <input required name="cpf" type="text" class="form-control" id="cpf" value="">
+                        </div>
+
+
+
+                    </div>
+
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalExemplo">
+                        Salvar
+                    </button>
+
+
+
+                    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar Locador</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja salvar as alterações?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" name="salvar" id="btn-confirm" class="btn btn-primary">Sim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+                <form method="POST" action="detalhe-locador?id=" id="cadastro-form-2">
+
+                    <input type="hidden" name="imovel_id" value="">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalExcluir">
+                        Excluir
+                    </button>
+
+                    <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Excluir Locador</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja excluir locador?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" name="excluir" id="btn-confirm" class="btn btn-primary">Sim</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;">
+    <p>Sistema de Recibos</p>
+</footer>
+
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+
+<script>
+	$('.gera-recibo').click(function(e) {
+		document.getElementById('gerar-recibo').value = e.target.id;
+		document.getElementById('geraRecibo').submit();
+	});
+</script>
+
+</body>
+</html>
