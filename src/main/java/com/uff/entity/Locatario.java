@@ -15,7 +15,7 @@ import java.util.Date;
 public class Locatario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull
@@ -27,17 +27,13 @@ public class Locatario {
     @NonNull
     private String telefone;
 
-    @ManyToOne
-    private Imovel imovel;
-
     @NonNull
     private Date inicioContrato;
 
     @NonNull
     private Date fimContrato;
 
-    @NonNull
-    private int valorAluguel;
+
 
 
 }

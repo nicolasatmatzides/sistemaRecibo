@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Imovel{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NonNull private String endereco;
@@ -28,9 +28,11 @@ public class Imovel{
     @NonNull private String cep;
 
     @ManyToOne
+    @JoinColumn(name = "locador_id")
     private Locador locador;
 
     @ManyToOne
+    @JoinColumn(name = "locatario_id")
     private Locatario locatario;
 
     @NonNull
@@ -38,6 +40,9 @@ public class Imovel{
 
     @NonNull
     private int valorImpostos;
+
+    @NonNull
+    private int valorAluguel;
 
 
 }
