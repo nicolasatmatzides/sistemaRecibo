@@ -5,21 +5,21 @@ import com.uff.repository.LocadorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 public class LocadorModule {
     private final LocadorRepository locadorRepository;
 
-    public Locador adicionaLocador(String nome, String cpf){
-        Locador locador =  new Locador();
-        Locador newLocador = new Locador();
+    public List<Locador> listaLocador(){
         try{
-            locador.setNome(nome);
-            locador.setCpf(cpf);
-            newLocador = locadorRepository.save(locador);
+            locadorRepository.findAll();
+
         }catch (Exception e){
-        System.out.println("Não foi possivel adicionar o locador devido a:"+""+ e);
+            System.out.println(e);
         }
-        return newLocador;
+        return locadorRepository.findAll();
     }
+
 }

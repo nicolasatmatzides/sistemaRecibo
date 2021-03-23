@@ -1,7 +1,9 @@
 package com.uff.api;
 
-import com.uff.entity.Imovel;
 import com.uff.module.ImovelModule;
+import com.uff.module.LocadorModule;
+import com.uff.module.LocatarioModule;
+import com.uff.module.RecibosModule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequiredArgsConstructor
 public class ReciboApiController {
     private final ImovelModule imovelModule;
+    private final RecibosModule recibosModule;
+    private final LocatarioModule locatarioModule;
+    private final LocadorModule locadorModule;
 
     /**Metodo que adiciona um Imovel*/
     @ResponseBody
@@ -40,4 +45,24 @@ public class ReciboApiController {
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(imovelModule.ListarImovel());
     }
 
+    /**Retorna todos os locatários*/
+    @ResponseBody
+    @RequestMapping(value = "/listarLocatario", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity listarLocatario(){
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(locatarioModule.listarLocatarios());
+    }
+
+    /**Retorna todos os imovéis*/
+    @ResponseBody
+    @RequestMapping(value = "/listarLocador", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity listarLocador(){
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(locadorModule.listaLocador());
+    }
+
+    /**Retorna todos os imovéis*/
+    @ResponseBody
+    @RequestMapping(value = "/listarRecibos", method = RequestMethod.GET, produces = "application/json")
+    public ResponseEntity listarRecibos(){
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(recibosModule.listarRecibos());
+    }
 }
