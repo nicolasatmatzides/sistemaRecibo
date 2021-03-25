@@ -2,21 +2,47 @@ package com.uff.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 public class Imovel{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NonNull private String endereco;
+
+    @NonNull private String complemento;
+
+    @NonNull private String cidade;
+
+    @NonNull private String estado;
+
+    @NonNull private String cep;
+
+    @ManyToOne
+    @JoinColumn(name = "locador_id")
+    private Locador locador;
+
+    @ManyToOne
+    @JoinColumn(name = "locatario_id")
+    private Locatario locatario;
+
+    @NonNull
+    private int valorCondominio;
+
+    @NonNull
+    private int valorImpostos;
+
+    @NonNull
+    private int valorAluguel;
 
 
 }
