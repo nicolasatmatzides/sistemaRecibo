@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,7 @@
         <div class="col">
             <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
                 <div class="container">
-                    <h1 class="display-4">Lista de Imóveis</h1>
+                    <h1 class="display-4">Lista de Locadores</h1>
                 </div>
             </div>
         </div>
@@ -28,33 +30,18 @@
     <div class="row j-c-c">
         <div class="col-sm-9 table-responsive">
             <form style="min-height:346px">
-                <input id="txtSearch" placeholder="Pesquisa" class="form-control">
                 <table id="example" class="display table table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Endereço</th>
-                        <th>Situação</th>
-
+                        <th>CPF</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>
 
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-
-                    </tr>
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -68,20 +55,26 @@
 <footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;">
     <p>Sistema de Recibos</p>
 </footer>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 <script>
 
-			$(document).ready(function() {
-				$('#example').DataTable( {
-					"pageLength": 10,
-					"dom":'t<"toolbar"><"aftertb col-sm-5"i><"aftertb col-sm-7"p>',
-					"language": {
-						"url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
-					},
-					"initComplete": function(settings, json) {
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "pageLength": 10,
+            "dom":'t<"toolbar"><"aftertb col-sm-5"i><"aftertb col-sm-7"p>',
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.13/i18n/Portuguese-Brasil.json"
+            },
+            "initComplete": function(settings, json) {
 
-					}
-				} );
-			} );
+            }
+        } );
+    } );
 
 	// $document.ready(function () {
 	// 	$('#btn-addlab').attr("display","none");
@@ -93,6 +86,17 @@
 		.search($('#txtSearch').val(), false, true)
 		.draw();
 	});
+
+	$(document).ready(function() {
+
+    	    $.get( "/listarLocador", function( data ) {
+    	        innerHtml = ""
+    	        data.forEach(function(locador) {
+    	            innerHtml += "<tr><td>" + locador.cpf + "</td><td> " + locador.nome + "</td></tr>"
+    	        });
+              $( "tbody" ).html( innerHtml );
+            });
+    });
 </script>
 </body>
 </html>

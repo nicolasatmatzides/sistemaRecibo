@@ -16,6 +16,12 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Locador {
 
+        public Locador(Long id, String nome, String cpf) {
+                this.cpf = cpf;
+                this.nome = nome;
+                this.Id = id;
+        }
+
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long Id;

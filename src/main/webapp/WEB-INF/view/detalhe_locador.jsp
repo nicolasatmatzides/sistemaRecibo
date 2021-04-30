@@ -10,7 +10,6 @@
 
 </head>
 <body>
-
 <div class="container-fluid content">
     <div class="row">
         <div class="col">
