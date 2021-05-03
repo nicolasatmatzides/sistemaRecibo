@@ -5,6 +5,7 @@ import com.uff.repository.LocadorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -13,13 +14,15 @@ public class LocadorModule {
     private final LocadorRepository locadorRepository;
 
     public List<Locador> listaLocador(){
+        List<Locador> locadorList = new ArrayList<>();
         try{
-            locadorRepository.findAll();
+
+           locadorList = locadorRepository.findAll();
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
-        return locadorRepository.findAll();
+        return locadorList;
     }
 
 }

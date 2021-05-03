@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 
 public interface ImovelRepository extends JpaRepository<Imovel, Long> {
-
+ void deleteById (Long id);
 }

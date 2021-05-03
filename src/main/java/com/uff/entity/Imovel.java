@@ -27,11 +27,11 @@ public class Imovel{
 
     @NonNull private String cep;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "locador_id")
     private Locador locador;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "locatario_id")
     private Locatario locatario;
 

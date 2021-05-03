@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface LocatarioRepository extends JpaRepository<Locatario, Long> {
 
-    List<Locatario> findLocatarioById (Long id);
+    List<Locatario> findLocatarioByName (Long id);
 }

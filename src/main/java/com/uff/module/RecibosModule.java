@@ -19,7 +19,7 @@ public class RecibosModule {
             reciboRepository.findAll();
 
         }catch (Exception e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         return reciboRepository.findAll();
     }

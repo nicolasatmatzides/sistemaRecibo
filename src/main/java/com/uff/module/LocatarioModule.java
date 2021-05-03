@@ -16,13 +16,13 @@ public class LocatarioModule {
     private  final LocatarioRepository locatarioRepository;
 
     public List<Locatario> listarLocatarios(){
-
+        List<Locatario> locatarioList = new ArrayList<>();
         try{
-            locatarioRepository.findAll();
+            locatarioList = locatarioRepository.findAll();
         }catch (Exception e){
-            System.out.println("Error ao listar locatario:"+ e);
+            e.printStackTrace();
 
         }
-        return locatarioRepository.findAll();
+        return locatarioList;
     }
 }

@@ -38,12 +38,36 @@ public class ReciboApiController {
                 valorCondominio,valorImpostos,nomeLocador,cpfLocador,nomeLocatario,email,valorAluguel,telefone));
     }
 
+    /**Metodo que altera um Imovel*/
+    @ResponseBody
+    @RequestMapping(value = "/alteraImovel", method = RequestMethod.PUT, produces = "application/json",params = {"id","endereco","complemento","cidade",
+            "estado","cep","valorCondominio","valorImpostos","nomeLocador","cpfLocador","nomeLocatario","email","valorAluguel"})
+    public ResponseEntity alteraImovel(@RequestParam("id") Long id, @RequestParam("endereco") String endereco, @RequestParam("complemento") String complemento,
+                                          @RequestParam("cidade") String cidade, @RequestParam("estado")String estado, @RequestParam("cep")String cep,
+                                          @RequestParam("valorCondominio")int valorCondominio, @RequestParam("valorImpostos")int valorImpostos,
+                                          @RequestParam("nomeLocador")String nomeLocador,@RequestParam("cpfLocador")String cpfLocador,
+                                          @RequestParam("nomeLocatario") String nomeLocatario,@RequestParam("email")String email,@RequestParam("valorAluguel")int valorAluguel,
+                                          @RequestParam("telefone")String telefone   ){
+
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(imovelModule.alteraImovelPorId(id,endereco,complemento,cidade,estado,cep,
+                valorCondominio,valorImpostos,nomeLocador,cpfLocador,nomeLocatario,email,valorAluguel,telefone));
+    }
+
     /**Retorna todos os imovéis*/
     @ResponseBody
     @RequestMapping(value = "/listarImovel", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity listarImovel(){
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(imovelModule.ListarImovel());
     }
+
+    /**Metodo delatar imovel por Id*/
+    @ResponseBody
+    @RequestMapping(value = "/deletaImovel", method = RequestMethod.DELETE, produces = "application/json", params = {"id"})
+    public ResponseEntity deletaImovel(@RequestParam("id") Long id){
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(imovelModule.deletaImovelporId(id));
+    }
+
+
 
     /**Retorna todos os locatários*/
     @ResponseBody

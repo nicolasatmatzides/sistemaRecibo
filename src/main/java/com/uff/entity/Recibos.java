@@ -17,7 +17,7 @@ public class Recibos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Imovel imovel;
 
 }
