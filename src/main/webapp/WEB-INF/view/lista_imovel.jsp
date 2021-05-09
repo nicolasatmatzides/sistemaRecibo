@@ -34,7 +34,7 @@
 					Imoveis
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="lista_imovel">Lista de Locatários</a>
+					<a class="dropdown-item" href="lista_imovel">Lista de Imóveis</a>
 				</div>
 			</li>
 			<li class="nav-item dropdown">
@@ -45,6 +45,22 @@
 					<a class="dropdown-item" href="lista_locador">Lista de Locadores</a>
 				</div>
 			</li>
+			<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Locatarios
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="lista_locatario">Lista de Locatarios</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recibos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="lista_recibo">Lista de recibos</a>
+                </div>
+            </li>
 		</ul>
 	</div>
 </nav>
@@ -139,7 +155,7 @@
     	        innerHtml = ""
     	        data.forEach(function(imovel) {
     	            console.log(imovel);
-    	            innerHtml += "<tr><td>" + imovel.endereco + "</td><td> " + imovel.complemento + "</td><td> " + imovel.cidade + "</td><td> " + imovel.estado + "</td><td> " + imovel.cep + "</td><td> " + imovel.valorAluguel + "</td><td> " + imovel.valorCondominio + "</td><td> " + imovel.valorImpostos + "</td><td> " + imovel.complemento + "</td><td><a id='delete-button' href='http://localhost:8080/deletaImovel?id="+ imovel.id +"' class='btn-danger btn-small' >delete</a></td></tr>"
+    	            innerHtml += "<tr><td>" + imovel.endereco + "</td><td> " + imovel.complemento + "</td><td> " + imovel.cidade + "</td><td> " + imovel.estado + "</td><td> " + imovel.cep + "</td><td> " + imovel.valorAluguel + "</td><td> " + imovel.valorCondominio + "</td><td> " + imovel.valorImpostos + "</td><td> " + imovel.complemento + "</td></tr>"
     	        });
               $( "tbody" ).html( innerHtml );
             });

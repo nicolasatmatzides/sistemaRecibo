@@ -25,14 +25,16 @@ public class ReciboApiController {
     private final LocatarioModule locatarioModule;
     private final LocadorModule locadorModule;
 
-    @RequestMapping(value = "/home")
+    @RequestMapping(value = "/")
     public ModelAndView home () {
-        return new ModelAndView("main_view");
+        return new ModelAndView("cadastro");
     }
+
     @RequestMapping(value = "/cadastro")
     public ModelAndView cadastro () {
         return new ModelAndView("cadastro");
     }
+
     @RequestMapping(value = "/lista_locador")
     public ModelAndView listalocador () {
         return new ModelAndView("lista_locador");
@@ -41,6 +43,16 @@ public class ReciboApiController {
     @RequestMapping(value = "/lista_imovel")
     public ModelAndView listaImovel () {
         return new ModelAndView("lista_imovel");
+    }
+
+    @RequestMapping(value = "/lista_locatario")
+    public ModelAndView listaLocatario () {
+        return new ModelAndView("lista_locatario");
+    }
+
+    @RequestMapping(value = "/lista_recibo")
+    public ModelAndView listaRecibo () {
+        return new ModelAndView("lista_recibo");
     }
 
 
@@ -87,8 +99,6 @@ public class ReciboApiController {
     public ResponseEntity deletaImovel(@RequestParam("id") Long id){
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(imovelModule.deletaImovelporId(id));
     }
-
-
 
     /**Retorna todos os locatários*/
     @ResponseBody
