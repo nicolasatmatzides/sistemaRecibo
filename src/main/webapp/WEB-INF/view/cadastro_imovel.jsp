@@ -18,7 +18,7 @@
         <div class="col">
             <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
                 <div class="container">
-                    <h1 class="display-4">Lista de Imóveis</h1>
+                    <h1 class="display-4">Cadastro</h1>
                 </div>
             </div>
         </div>
