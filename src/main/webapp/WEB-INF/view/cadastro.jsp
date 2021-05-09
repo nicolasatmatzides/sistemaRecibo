@@ -12,13 +12,47 @@
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="index.php">Sistema de Recibos</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" style="justify-content: space-between;" id="conteudoNavbarSuportado">
+		<ul class="navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Cadastro
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="cadastro">Cadastro</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Imoveis
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="lista_imovel">Lista de Locatários</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Locadores
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="lista_locador">Lista de Locadores</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</nav>
 
 <div class="container-fluid content">
     <div class="row">
         <div class="col">
             <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
                 <div class="container">
-                    <h1 class="display-4">Lista de Imóveis</h1>
+                    <h1 class="display-4">Cadastro</h1>
                 </div>
             </div>
         </div>
@@ -102,10 +136,15 @@
     <p>Sistema de Recibos</p>
 </footer>
 
+
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
 
 <script>
 	$('.gera-recibo').click(function(e) {
@@ -138,7 +177,7 @@
               data: formData,
               success: function() {
                 console.log("Imovel adicionado");
-                location.reload();
+                window.location = "http://localhost:8080/lista_imovel";
               },
               dataType: "json",
             });

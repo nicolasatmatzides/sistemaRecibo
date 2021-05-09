@@ -13,6 +13,7 @@
 
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="index.php">Sistema de Recibos</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
@@ -54,7 +55,7 @@
         <div class="col">
             <div class="jumbotron jumbotron-fluid" style="padding: 1rem 2rem !important;">
                 <div class="container">
-                    <h1 class="display-4">Lista de Locadores</h1>
+                    <h1 class="display-4">Lista de Imoveis</h1>
                 </div>
             </div>
         </div>
@@ -66,8 +67,15 @@
                 <table id="example" class="display table table-hover" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>CPF</th>
+                        <th>Endereço</th>
+                        <th>Complemento</th>
+                        <th>Cidade</th>
+                        <th>Estado</th>
+                        <th>CEP</th>
+                        <th>Valor do Aluguel</th>
+                        <th>Condominio</th>
+                        <th>Impostos</th>
+                        <th>Complemento</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -75,6 +83,13 @@
                     </tbody>
                     <tfoot>
                     <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -85,7 +100,7 @@
     </div>
 </div>
 
-<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;position:fixed;bottom: 0;">
+<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;position: fixed;bottom: 0;">
     <p>Sistema de Recibos</p>
 </footer>
 
@@ -94,11 +109,10 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-<script
+<script>
 
     $(document).ready(function() {
         $('#example').DataTable( {
@@ -113,16 +127,49 @@
         } );
     } );
 
+	// $document.ready(function () {
+	// 	$('#btn-addlab').attr("display","none");
+	// });
+
+
 
 	$(document).ready(function() {
 
-    	    $.get( "/listarLocador", function( data ) {
+    	    $.get( "/listarImovel", function( data ) {
     	        innerHtml = ""
-    	        data.forEach(function(locador) {
-    	            innerHtml += "<tr><td>" + locador.cpf + "</td><td> " + locador.nome + "</td><td> " + locador.email + "</td></tr>"
+    	        data.forEach(function(imovel) {
+    	            console.log(imovel);
+    	            innerHtml += "<tr><td>" + imovel.endereco + "</td><td> " + imovel.complemento + "</td><td> " + imovel.cidade + "</td><td> " + imovel.estado + "</td><td> " + imovel.cep + "</td><td> " + imovel.valorAluguel + "</td><td> " + imovel.valorCondominio + "</td><td> " + imovel.valorImpostos + "</td><td> " + imovel.complemento + "</td><td><a id='delete-button' href='http://localhost:8080/deletaImovel?id="+ imovel.id +"' class='btn-danger btn-small' >delete</a></td></tr>"
     	        });
               $( "tbody" ).html( innerHtml );
             });
+
+            $( "#delete-button" ).click(function() {
+              window.location = "http://localhost:8080/lista_imovel";
+            });
+
+            $.ajax({
+                          type: "POST",
+                          url: "/adicionaImovel?endereco=" + $("#txtEnd").val()
+                                + "&complemento=" + $("#txtCompl").val()
+                                + "&cidade=" + $("#txtCid").val()
+                                + "&estado=" + $("#txtEst").val()
+                                + "&cep=" + $("#txtCep").val()
+                                + "&valorCondominio=" + $("#txtVal").val()
+                                + "&valorImpostos=" + $("#txtValImp").val()
+                                + "&nomeLocador=" + $("#txtNome").val()
+                                + "&cpfLocador=" + $("#txtCpf").val()
+                                + "&nomeLocatario=" + $("#txtNomeLocatario").val()
+                                + "&email=" + $("#txtEmail").val()
+                                + "&valorAluguel=" + $("#txtValAl").val()
+                                + "&telefone=" + $("#txtTel").val(),
+                          data: formData,
+                          success: function() {
+                            console.log("Imovel adicionado");
+                            window.location = "http://localhost:8080/lista_imovel";
+                          },
+                          dataType: "json",
+                        });
     });
 </script>
 </body>

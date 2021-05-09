@@ -31,17 +31,21 @@ public class ReciboApiController {
     }
     @RequestMapping(value = "/cadastro")
     public ModelAndView cadastro () {
-        return new ModelAndView("cadastro_imovel");
+        return new ModelAndView("cadastro");
     }
     @RequestMapping(value = "/lista_locador")
     public ModelAndView listalocador () {
         return new ModelAndView("lista_locador");
     }
+    @RequestMapping(value = "/lista_imovel")
+    public ModelAndView listaImovel () {
+        return new ModelAndView("lista_imovel");
+    }
 
     /**Metodo que adiciona um Imovel*/
     @ResponseBody
     @RequestMapping(value = "/adicionaImovel", method = RequestMethod.POST, produces = "application/json",params = {"endereco","complemento","cidade",
-            "estado","cep","valorCondominio","valorImpostos","nomeLocador","cpfLocador","nomeLocatario","email","valorAluguel"})
+            "estado","cep","valorCondominio","valorImpostos","nomeLocador","cpfLocador","nomeLocatario","email","valorAluguel","telefone"})
     public ResponseEntity adicionarImovel(@RequestParam("endereco") String endereco, @RequestParam("complemento") String complemento,
                                        @RequestParam("cidade") String cidade, @RequestParam("estado")String estado, @RequestParam("cep")String cep,
                                        @RequestParam("valorCondominio")int valorCondominio, @RequestParam("valorImpostos")int valorImpostos,
@@ -56,7 +60,7 @@ public class ReciboApiController {
     /**Metodo que altera um Imovel*/
     @ResponseBody
     @RequestMapping(value = "/alteraImovel", method = RequestMethod.PUT, produces = "application/json",params = {"id","endereco","complemento","cidade",
-            "estado","cep","valorCondominio","valorImpostos","nomeLocador","cpfLocador","nomeLocatario","email","valorAluguel"})
+            "estado","cep","valorCondominio","valorImpostos","nomeLocador","cpfLocador","nomeLocatario","email","valorAluguel","telefone"})
     public ResponseEntity alteraImovel(@RequestParam("id") Long id, @RequestParam("endereco") String endereco, @RequestParam("complemento") String complemento,
                                           @RequestParam("cidade") String cidade, @RequestParam("estado")String estado, @RequestParam("cep")String cep,
                                           @RequestParam("valorCondominio")int valorCondominio, @RequestParam("valorImpostos")int valorImpostos,
