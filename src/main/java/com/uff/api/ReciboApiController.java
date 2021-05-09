@@ -37,10 +37,12 @@ public class ReciboApiController {
     public ModelAndView listalocador () {
         return new ModelAndView("lista_locador");
     }
+
     @RequestMapping(value = "/lista_imovel")
     public ModelAndView listaImovel () {
         return new ModelAndView("lista_imovel");
     }
+
 
     /**Metodo que adiciona um Imovel*/
     @ResponseBody

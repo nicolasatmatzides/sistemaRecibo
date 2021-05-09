@@ -47,8 +47,6 @@
 		</ul>
 	</div>
 </nav>
-
-
 <div class="container-fluid content">
     <div class="row">
         <div class="col">
@@ -85,7 +83,7 @@
     </div>
 </div>
 
-<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;position:fixed;bottom: 0;">
+<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;">
     <p>Sistema de Recibos</p>
 </footer>
 
@@ -94,12 +92,9 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
-<script
-
+<script>
     $(document).ready(function() {
         $('#example').DataTable( {
             "pageLength": 10,
@@ -112,7 +107,6 @@
             }
         } );
     } );
-
 
 	$(document).ready(function() {
 
