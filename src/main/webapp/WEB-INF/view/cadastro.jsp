@@ -163,10 +163,6 @@
 
 
 <script>
-	$('.gera-recibo').click(function(e) {
-		document.getElementById('gerar-recibo').value = e.target.id;
-		document.getElementById('geraRecibo').submit();
-	});
 
 	$(document).ready(function() {
 

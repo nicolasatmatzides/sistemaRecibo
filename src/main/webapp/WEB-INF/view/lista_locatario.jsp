@@ -106,7 +106,7 @@
 </div>
 
 </div>
-<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;">
+<footer style="padding: 0.5rem 0;color: #999;text-align: center;background-color: #f9f9f9;border-top: .05rem solid #e5e5e5;width: 100%;position: fixed;bottom: 0;">
     <p>Sistema de Recibos</p>
 </footer>
 
